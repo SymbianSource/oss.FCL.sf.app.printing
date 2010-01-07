@@ -236,8 +236,8 @@ void CPropertiesBoxModel::HandleListBoxEventL(
     TListBoxEvent aEventType )
     {
     LOG("CPropertiesBoxModel::HandleListBoxEventL START");
- 
-    if ( (aEventType == EEventEnterKeyPressed || aEventType == EEventItemDoubleClicked) &&
+    //Change to EEventItemSingleClicked for Single click event
+    if ( (aEventType == EEventEnterKeyPressed || aEventType == EEventItemSingleClicked ) &&
          aListBox->CurrentItemIndex() != KErrNotFound )
         {
         if( aListBox->CurrentItemIndex() == 0 )

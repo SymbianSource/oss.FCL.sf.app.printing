@@ -73,8 +73,8 @@ const TInt32 KUid (0x101FFA84);
 void CImagePrintAppUi::ConstructL()
     {
 	LOG("CImagePrintAppUi::ConstructL BEGIN");
-
-    BaseConstructL( EAknEnableSkin | EAppOrientationAutomatic | EAknEnableMSK );	
+	// Add EAknSingleClickCompatible to BaseConstructL function parameter for single click event 
+    BaseConstructL( EAknEnableSkin | EAppOrientationAutomatic | EAknEnableMSK | EAknSingleClickCompatible );	
   	
     FeatureManager::InitializeLibL();
 

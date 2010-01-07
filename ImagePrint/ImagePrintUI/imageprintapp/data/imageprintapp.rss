@@ -94,6 +94,7 @@ RESOURCE MENU_PANE r_profile_list_view_menu
             {
             command = ESettingsChangeItem;
             txt = qtn_print_settings_opt_change;
+            flags = EEikMenuItemAction;//Add for Single click event 
             },
         MENU_ITEM
             {
@@ -301,7 +302,8 @@ RESOURCE BMPANIM_DATA r_imageprint_animation
  */
 RESOURCE AVKON_SETTING_PAGE r_setting_generic_protocol_page
     {    
-    softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;
+    //softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;// removed due to single click
+    softkey_resource = R_AVKON_SOFTKEYS_CANCEL ;
     type = EAknCtPopupSettingList;
     editor_resource_id = r_empty_protocol_setting_list;
     }
