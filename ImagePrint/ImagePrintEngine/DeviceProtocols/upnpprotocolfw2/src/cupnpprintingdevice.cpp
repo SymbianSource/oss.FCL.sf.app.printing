@@ -1108,10 +1108,14 @@ LOG("[CUPnPPrintingDevice]\t SendPrinterListL Begin");
 		iState = EUPnPDiscovery;
 		iTriedReadCacheAndFail = EFalse;
 	}
-	else
+	else if(iDiscoveryObserver)
 	{
 		iDiscoveryObserver->DiscoveryStatusL(EDiscoveryFinished, KErrNone, 0);	
 	}
+	else
+    {
+	    User::LeaveIfNull(iDiscoveryObserver);
+    }
 	LOG("[CUPnPPrintingDevice]\t SendPrinterListL end");
 }
 
@@ -1354,9 +1358,13 @@ void CUPnPPrintingDevice::SubmitJobToPcpL(TInt aDeviceID)
 	{
 		printer =
 			static_cast<CUPPrinter*> (User::LeaveIfNull(iPrinterContainer->Printer(printerIndex)));
+        SubmitJobToPcpL(*(printer->Device()), aDeviceID);
 	}
+	else
+	{
+	    User::LeaveIfNull(printer);
+    }
 	
-	SubmitJobToPcpL(*(printer->Device()), aDeviceID);
 }
 
 //--------------------------------------------------------------------------------------------

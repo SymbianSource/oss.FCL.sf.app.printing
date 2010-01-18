@@ -945,13 +945,13 @@ CRsBtDevice* CBtPrintingDevice::FindDevice(TInt aDeviceID)
 //--------------------------------------------------------------------------------------------
 void CBtPrintingDevice::SetNumsOfCopiesL( const RArray<TInt>& aNumsOfCopies, TInt& aErr )
 	{
-	LOG1("[CBtPrintingDevice::SetNumsOfCopiesL]\t iPrintingJob->JobState(): %d", iPrintingJob->JobState());
-
 	if( !iPrintingJob || iPrintingJob->JobState() != CPrintJob::EStateCreated )
 	{
 		aErr = KErrInvalidSequence;
 		return;
 	}
+
+    LOG1("[CBtPrintingDevice::SetNumsOfCopiesL]\t iPrintingJob->JobState(): %d", iPrintingJob->JobState());
 
 	LOG2("[CBtPrintingDevice::SetNumsOfCopiesL]\t ImageCount(): %d, copies count: %d ",
 				iPrintingJob->ImageCount(), aNumsOfCopies.Count());
@@ -1580,7 +1580,7 @@ void CBtPrintingDevice::GetPrinterStateL()
 //--------------------------------------------------------------------------------------------
 void CBtPrintingDevice::CancelJobL()
 {
-	LOG1("[CBtPrintingDevice::CancelJobL]\t begin at iPrintingJob->JobState(): %d", iPrintingJob->JobState());
+	LOG("[CBtPrintingDevice::CancelJobL]\t begin");
 
 	// If not submitted, return
 	if( !iPrintingJob || 
@@ -1588,6 +1588,8 @@ void CBtPrintingDevice::CancelJobL()
 	   	CPrintJob::EStateSending != iPrintingJob->JobState() &&
 	   	CPrintJob::EStatePrinting != iPrintingJob->JobState()) )
 		User::Leave(KErrInvalidSequence);
+
+    LOG1("[CBtPrintingDevice::CancelJobL]\t begin at iPrintingJob->JobState(): %d", iPrintingJob->JobState());
 
 	CRsBtDevice* printer = static_cast<CRsBtDevice*>(User::LeaveIfNull(
 					FindDevice(iPrintingJob->PrinterId())));

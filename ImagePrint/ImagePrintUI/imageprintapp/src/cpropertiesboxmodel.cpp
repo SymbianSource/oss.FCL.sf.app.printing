@@ -362,32 +362,33 @@ void CPropertiesBoxModel::SetNumberOfCopiesValueL()
    
     // Images selected in print job
     TInt imagesCount = iEngine.FileArray().Count(); 
- 
-    // Get number of copies for current image
-    if( numberOfCopiesArray.Count() != imagesCount )
+    if(0 != imagesCount)
         {
-        numberOfCopiesArray.Reset();
-        for( TInt i=0; i < imagesCount; ++i )
+        // Get number of copies for current image
+        if( numberOfCopiesArray.Count() != imagesCount )
             {
-            numberOfCopiesArray.Append( 1 );
+            numberOfCopiesArray.Reset();
+            for( TInt i=0; i < imagesCount; ++i )
+                {
+                numberOfCopiesArray.Append( 1 );
+                }
+            }
+    
+        TInt oldNOC( numberOfCopiesArray[ 0 ] );
+    
+        // if new value was entered
+        if (iNumberOfCopiesValue != oldNOC)
+            {
+            // Set Number of copies value for each image.
+            // Value is same for all images in IP 6.2
+            for ( TInt i=0; i<imagesCount; i++ )
+                {
+                numberOfCopiesArray[ i ] = iNumberOfCopiesValue;
+                }
+            
+            iSettingsIF->SetNumberOfCopiesL( numberOfCopiesArray );
             }
         }
-
-    TInt oldNOC( numberOfCopiesArray[ 0 ] );
-
-    // if new value was entered
-    if (iNumberOfCopiesValue != oldNOC)
-        {
-        // Set Number of copies value for each image.
-        // Value is same for all images in IP 6.2
-        for ( TInt i=0; i<imagesCount; i++ )
-            {
-            numberOfCopiesArray[ i ] = iNumberOfCopiesValue;
-            }
-        
-        iSettingsIF->SetNumberOfCopiesL( numberOfCopiesArray );
-        }
-
     CleanupStack::PopAndDestroy( &numberOfCopiesArray ); 
     }
 

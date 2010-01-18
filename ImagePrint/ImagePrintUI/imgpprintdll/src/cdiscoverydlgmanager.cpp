@@ -264,12 +264,13 @@ void CDiscoveryDlgManager::DiscoveryError(
 // Called when process completed
 void CDiscoveryDlgManager::DeviceDiscoveryCompleted()
 	{
-	LOG1("[CDiscoveryDlgManager::DeviceDiscoveryCompleted]\t Before dissmissing the process/wait dialog, iDiscoveryCompleted has value of %d", iDiscoveryCompleted);
 	// // Added this to avoid multiple "Search Again" texts, because server sends DeviceDiscoveryCompleted() more than once 
 	if( iDiscoveryCompleted )
 		{
 		return;
 		}
+
+    LOG1("[CDiscoveryDlgManager::DeviceDiscoveryCompleted]\t Before dissmissing the process/wait dialog, iDiscoveryCompleted has value of %d", iDiscoveryCompleted);
 
 	// Searching over, flag is essential
 	iSearchingCancelled = ETrue;
@@ -288,7 +289,7 @@ void CDiscoveryDlgManager::DeviceDiscoveryCompleted()
 		}
 
 	iDiscoveryCompleted = ETrue;
-	if ( iActivePopup )
+	if ((iActivePopup) && (iPopupList))
 		{
 		iPopupList->Heading()->CancelAnimation();
 

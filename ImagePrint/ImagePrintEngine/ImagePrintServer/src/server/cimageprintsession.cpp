@@ -753,7 +753,8 @@ void CImagePrintSession::IsPictBridgeModeL( TMessageWrp2& aMessage )
 		/* 
 		*	If there is some problems with pictbridge, check from usbpersonalityids.h that constants haven't been changed.
 		*/
-		if( dState == EUsbDeviceStateConfigured && personality == KUsbPersonalityIdMTP )
+        if( dState == EUsbDeviceStateConfigured && 
+                ((personality == KUsbPersonalityIdMTP)||(personality == KUsbPersonalityIdPCSuiteMTP)))
 			err = ETrue;		
 
 		aMessage.SetDisposable( ETrue );

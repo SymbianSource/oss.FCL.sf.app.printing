@@ -187,14 +187,14 @@ void CDiscoveryManager::DiscoveryStatusL(
     // When Bluetooth discovery is finished, but Bluetooth is not enabled pass error code to UI.   
     if ( aErrorCode == ENoConnection )
     	{
-    	if (iDiscoveryObserver){
-    	iDiscoveryObserver->DiscoveryError( aErrorCode ); 
-    	}
-	}		
+    	if (iDiscoveryObserver)
+            {
+            iDiscoveryObserver->DiscoveryError( aErrorCode ); 
+            }
+        }
 	if ( iCancelling )
         {
         // Exection continues in CancelDiscoveryL()
-
         if ( iDiscoveryObserver )
            {
            iDiscoveryObserver->DeviceDiscoveryCompleted();
@@ -207,16 +207,25 @@ void CDiscoveryManager::DiscoveryStatusL(
             if ( aStatus == EDiscovering )
                 {
                 iOnGoingDiscovery = EFalse;
-                iDiscoveryObserver->DeviceDiscoveryCompleted();
+                if ( iDiscoveryObserver )
+                    {
+                    iDiscoveryObserver->DeviceDiscoveryCompleted();
+                    }
                 }
             else if ( aStatus == EDoneDiscovery )
                 {
                 iOnGoingDiscovery = EFalse;
-                iDiscoveryObserver->DeviceDiscoveryCompleted();
+                if ( iDiscoveryObserver )
+                    {
+                    iDiscoveryObserver->DeviceDiscoveryCompleted();
+                    }
                 }
             else if ( aStatus == ECancellingDiscovery )
                 {
-                iDiscoveryObserver->DiscoveryError( aErrorCode );
+                if ( iDiscoveryObserver )
+                    {
+                    iDiscoveryObserver->DiscoveryError( aErrorCode );
+                    }
                 }
             else
                 {

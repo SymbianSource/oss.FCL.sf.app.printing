@@ -827,9 +827,11 @@ CObexBufObject* CBtObjectServer::CreateObexObjectL(const TDesC& aUri)
 	    	LOG1("[CBtObjectServer::CreateObexObject]\t file = \"%S\"", &file );
 
 			GetDataSequenceL(file, size);
-		    LOG2("[CBtObjectServer::CreateObexObject]\t data len: %d, file size: %d", iObexBody->Size(), size);
 			if(iObexBody)
-				iObexBufObject = CObexBufObject::NewL(iObexBody);
+                {
+                LOG2("[CBtObjectServer::CreateObexObject]\t data len: %d, file size: %d", iObexBody->Size(), size);
+    			iObexBufObject = CObexBufObject::NewL(iObexBody);
+                }
 
 			break;
 		}

@@ -414,6 +414,7 @@ void CUPPrinterContainer::UpdateCacheL(TInt aDeviceId)
 			break;
 		}
 	}
+	User::LeaveIfNull(printer);
 
 	// Calculate size for buffer
 	TInt bufSize = 0;

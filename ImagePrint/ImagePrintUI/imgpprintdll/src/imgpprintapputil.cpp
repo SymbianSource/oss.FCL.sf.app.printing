@@ -141,6 +141,7 @@ void IMGPPrintAppUtil::HandleByStringCodeL( TInt aErrCode, TInt aErrorStringCode
 	                aResourceId = R_NOTE_CONNECT_PRINT_ERROR;
 	                }           
 	            }
+                break;
 	            
 	        case KErrL2CAPRequestTimeout:
 	            aResourceId = R_NOTE_SEND_PRINT_ERROR;

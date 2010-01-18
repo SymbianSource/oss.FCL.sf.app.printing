@@ -37,7 +37,7 @@ PRJ_MMPFILES
 ../DeviceProtocols/dpof/group/dpofprotdll.mmp
 ../DeviceProtocols/btprotocol/group/btprotocol.mmp
 ../DeviceProtocols/pictbridge2/group/pdphotolib.mmp
-../DeviceProtocols/upnpprotocolfw2/group/upnpprotocol.mmp
+//../DeviceProtocols/upnpprotocolfw2/group/upnpprotocol.mmp
 
 
 //  End of File
