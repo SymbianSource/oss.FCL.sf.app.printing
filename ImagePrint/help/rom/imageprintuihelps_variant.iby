@@ -1,0 +1,11 @@
+#ifndef __ANYAPPHELPS_VARIANT_IBY__
+#define __ANYAPPHELPS_VARIANT_IBY__
+
+#if defined(FF_S60_HELPS_IN_USE) && defined(__ANYAPP_USED)
+    data=LOCALISE(DATAZ_\resource\xhtml\%02d\0x00000000\contents.zip, RESOURCE_FILES_DIR\xhtml\%02d\0x00000000\contents.zip)
+    data=LOCALISE(DATAZ_\resource\xhtml\%02d\0x00000000\index.xml, RESOURCE_FILES_DIR\xhtml\%02d\0x00000000\index.xml)
+    data=LOCALISE(DATAZ_\resource\xhtml\%02d\0x00000000\keywords.xml, RESOURCE_FILES_DIR\xhtml\%02d\0x00000000\keywords.xml)
+    data=LOCALISE(DATAZ_\resource\xhtml\%02d\0x00000000\meta.xml, RESOURCE_FILES_DIR\xhtml\%02d\0x00000000\meta.xml)
+#endif
+
+#endif
