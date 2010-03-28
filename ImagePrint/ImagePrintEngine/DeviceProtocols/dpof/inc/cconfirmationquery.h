@@ -34,7 +34,7 @@ public:
 
     static CConfirmationQuery* NewLC( MConfirmationNotify& aNotify );  
     
-    void CConfirmationQuery::StartWaitingAnswer( );
+    void StartWaitingAnswer( );
         
 protected: // from CActive 
 

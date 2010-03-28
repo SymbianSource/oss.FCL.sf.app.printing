@@ -153,7 +153,7 @@ NONSHARABLE_CLASS(CBtJobChannel) : public CBtChannelBase, public MBtTimerObserve
 			/*
 			 * Calculates and returns size of current print job.
 			 * */
-			TInt CBtJobChannel::CalculateJobSizeL();
+			TInt CalculateJobSizeL();
 			
 			/*
 			 * Updates progress bar. 
