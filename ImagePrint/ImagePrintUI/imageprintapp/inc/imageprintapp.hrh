@@ -35,7 +35,7 @@ enum TPreviewView
     ECmdPrint = 0x1000,
     ECmdPrintSettings,
     ECmdPrintNumberOfCopies,
-    ECmdPrintHelp
+    ECmdPrintHelp = EAknCmdHelp
     };
 
 // Commands for the setting view's HandleCommandL()
