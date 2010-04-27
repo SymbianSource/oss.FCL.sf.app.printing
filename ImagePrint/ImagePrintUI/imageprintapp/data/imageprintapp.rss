@@ -104,7 +104,7 @@ RESOURCE MENU_PANE r_profile_list_view_menu
         MENU_ITEM
             {
             command = ECmdPrintHelp;
-            txt = qtn_print_menu_opt_help;
+            txt = qtn_options_help;
             },
         MENU_ITEM
             {
