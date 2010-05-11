@@ -21,6 +21,8 @@
 #include "../clog/group/bld.inf"
 #include "../ImagePrintEngine/group/bld.inf"
 #include "../ImagePrintUI/group/bld.inf"
+// Help exports
+#include "../help/group/bld.inf"
 
 PRJ_PLATFORMS
 WINSCW ARMV5

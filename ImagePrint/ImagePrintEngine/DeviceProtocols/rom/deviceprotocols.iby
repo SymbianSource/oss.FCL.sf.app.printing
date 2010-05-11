@@ -36,7 +36,7 @@ IP_PLUGIN(pdphotolib.dll,pdphotolib.rsc)
 #endif
 
 #ifdef FF_IMAGEPRINT_UPNP_PROTOCOL
-IP_PLUGIN(upnpprotocol.dll, upnpprotocol.rsc)
+//IP_PLUGIN(upnpprotocol.dll, upnpprotocol.rsc)
 #endif
 
 file=ABI_DIR\IP_DIR\xhtmlfilecomposer.dll	SHARED_LIB_DIR\xhtmlfilecomposer.dll
