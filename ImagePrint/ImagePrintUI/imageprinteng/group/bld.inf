@@ -17,8 +17,7 @@
 
 
 PRJ_EXPORTS
-../data/10208a35.txt     		/epoc32/data/z/private/10202be9/10208a35.txt
-../data/10208a35.txt 			/epoc32/release/winscw/udeb/z/private/10202be9/10208a35.txt
+../data/10208a35.txt			z:/private/10202be9/10208a35.txt
 
 PRJ_PLATFORMS
 DEFAULT
