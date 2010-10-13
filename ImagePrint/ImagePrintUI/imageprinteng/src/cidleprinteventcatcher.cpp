@@ -124,18 +124,16 @@ void CIdlePrintEventCatcher::StatusEvent( const TEvent &aEvent,
                     	CAknErrorNote* errornote = new CAknErrorNote( ETrue );  
 						TInt err ( KErrNone );
 		        		TRAP( err, errornote->ExecuteLD( *iBuf ));		        				        			
-											
+	                    if ( iBuf )
+	                        {
+	                        delete iBuf;
+	                        iBuf = NULL;
+	                        }											
                     	}
                     for( TInt i=0; i<obsCount; i++ )
                         {
                         iObservers[i]->UsbPrinterDisconnected();                    
-                        }
-                    if ( iBuf )
-                    	{
-                    	delete iBuf;
-                    	iBuf = NULL;
-                    	}
-                    
+                        }                    
                     }
                 }
             break;

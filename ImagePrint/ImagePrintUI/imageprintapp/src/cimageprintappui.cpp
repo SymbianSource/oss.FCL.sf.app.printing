@@ -428,6 +428,11 @@ CDesCArrayFlat* CImagePrintAppUi::GetImagesFromAiwProviderL()
 		HBufC* buf = StringLoader::LoadLC( R_QTN_PRINT_SELECTNEW_NOTE );
 		errornote->ExecuteLD( *buf );
 		CleanupStack::PopAndDestroy( buf );
+		CleanupStack::PopAndDestroy(paramList);
+	    readStream.Close();
+	    readStream.Pop();
+	    CleanupStack::PopAndDestroy( &fileServer );
+	    delete imageFiles;
 		Exit();
     	}
 
